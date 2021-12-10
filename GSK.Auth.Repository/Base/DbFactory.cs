@@ -20,7 +20,7 @@ namespace GSK.Auth.Repository
                 throw new ArgumentNullException(nameof(name));
             }
 
-            var client = new MyDbBase(new ConnConfig { });
+            var client = new MyDbBase(new ConnOptions { });
             var option = _optionsMonitor.Get(name).DapperActions.FirstOrDefault();
             if (option != null)
                 option(client.ConnConfig);

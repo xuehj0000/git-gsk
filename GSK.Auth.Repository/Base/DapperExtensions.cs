@@ -7,7 +7,7 @@ namespace GSK.Auth.Repository
 {
     public static class DapperExtensions
     {
-        public static IDapperFactoryBuilder AddDapper(this IServiceCollection services, string name, Action<ConnConfig> configureClient)
+        public static IDapperFactoryBuilder AddDapper(this IServiceCollection services, string name, Action<ConnOptions> configureClient)
         {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
@@ -50,7 +50,7 @@ namespace GSK.Auth.Repository
         public IServiceCollection Services { get; }
     }
 
-    public class ConnConfig
+    public class ConnOptions
     {
         public string ConnString { get; set; }
         public DbType DbType { get; set; } = DbType.SqlServer;
@@ -63,7 +63,7 @@ namespace GSK.Auth.Repository
 
     public class DapperOptions
     {
-        public IList<Action<ConnConfig>> DapperActions { get; } = new List<Action<ConnConfig>>();
+        public IList<Action<ConnOptions>> DapperActions { get; } = new List<Action<ConnOptions>>();
     }
     #endregion
 }

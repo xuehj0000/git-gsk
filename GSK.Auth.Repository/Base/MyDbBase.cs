@@ -14,13 +14,13 @@ namespace GSK.Auth.Repository
     /// </summary>
     public class MyDbBase
     {
-        public ConnConfig ConnConfig { get; set; }
+        public ConnOptions ConnConfig { get; set; }
 
-        public MyDbBase(ConnConfig config)
+        public MyDbBase(ConnOptions config)
         {
             ConnConfig = config;
         }
-        public MyDbBase(IOptionsMonitor<ConnConfig> config)
+        public MyDbBase(IOptionsMonitor<ConnOptions> config)
         {
             ConnConfig = config.CurrentValue;
         }
