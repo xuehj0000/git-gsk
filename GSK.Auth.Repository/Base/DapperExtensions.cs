@@ -11,13 +11,11 @@ namespace GSK.Auth.Repository
         {
             if (services == null)
                 throw new ArgumentNullException(nameof(services));
-
             if (name == null)
                 throw new ArgumentNullException(nameof(name));
-
             if (configureClient == null)
                 throw new ArgumentNullException(nameof(configureClient));
-            //services.AddLogging();
+
             services.AddOptions();
             services.AddSingleton<DbFactory>();
             services.TryAddSingleton<IDbFactory>(serviceProvider => serviceProvider.GetRequiredService<DbFactory>());
